@@ -37,7 +37,7 @@ async def on_message(message):
             request = requests.get(attachment,stream=True)
             if request.status_code == 200:
                 try:
-                    embed_setup = discord.Embed(title="Color Palette",description="This is the color pallete of your image",color=discord.Color.random())
+                    embed_setup = discord.Embed(title="Color Palette",description="This is the color palette of your image",color=discord.Color.random())
                     with open(f"{message.author.id}.jpg","wb") as file:
                         shutil.copyfileobj(request.raw,file)
                         palette = get_color_palette(file.name, num_colors=5, palette_image_path="palette.jpg")
