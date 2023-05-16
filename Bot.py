@@ -40,7 +40,7 @@ async def on_message(message):
                     embed_setup = discord.Embed(title="Color Palette",description="This is the color palette of your image",color=discord.Color.random())
                     with open(f"{message.author.id}.jpg","wb") as file:
                         shutil.copyfileobj(request.raw,file)
-                        palette = get_color_palette(file.name, num_colors=5, palette_image_path="palette.jpg")
+                        palette = get_color_palette(file.name, palette_image_path="palette.jpg")
                         embed_setup.add_field(name="First Color",value=palette[0],inline=True)
                         embed_setup.add_field(name="Second Color",value=palette[1],inline=True)
                         embed_setup.add_field(name="Third Color",value=palette[2],inline=True)
